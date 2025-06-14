@@ -1,7 +1,7 @@
 import { Button, Stack } from "@chakra-ui/react";
 import { useStyle } from "./theme";
 
-const LoadingComponent = () => {
+export const LoadingComponent = () => {
   const style = useStyle();
   return (
     <Stack
@@ -16,5 +16,3 @@ const LoadingComponent = () => {
     </Stack>
   );
 };
-
-export default LoadingComponent;

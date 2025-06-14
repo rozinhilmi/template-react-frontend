@@ -1,6 +1,6 @@
 import { LazyLoadImage } from "@/components/Image";
-import LoadingComponent from "@/components/LoadingComponent";
-import TableCompo from "@/components/TableCompo";
+import { LoadingComponent } from "@/components/LoadingComponent";
+import { TableCompo } from "@/components/TableCompo";
 import { useStyle } from "@/components/theme";
 import { convertToBillNumber, useToken } from "@/utils/helper/helper";
 import { HStack, RatingGroup, Stack, Text } from "@chakra-ui/react";
@@ -21,7 +21,7 @@ type ProductInterface = {
   };
 };
 
-const index = () => {
+export const Index = () => {
   const token = useToken();
   const {
     data: products,
@@ -145,5 +145,3 @@ const index = () => {
     </div>
   );
 };
-
-export default index;

@@ -1,6 +1,7 @@
 import { useStyle } from "@/components/theme";
 import { Text, Stack, HStack, Icon } from "@chakra-ui/react";
 import { NavLink, useLocation } from "react-router";
+
 export const NavItem = (props: { label: string; link: string; icon: any; setShowSidebar?: any }) => {
   const location = useLocation();
   const active = location.pathname == props.link;

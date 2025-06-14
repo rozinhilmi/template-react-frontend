@@ -1,5 +1,5 @@
-export { default as Dashboard } from "./Dashboard";
-export { default as Store } from "./Store";
-export { default as DetailStore } from "./Store/Detail";
+export { Index as Dashboard } from "./Dashboard";
+export { Index as Store } from "./Store";
+export { Index as DetailStore } from "./Store/Detail";
 
-export { default as NotFoundPage } from "./404";
+export { NotFoundPage } from "./404";

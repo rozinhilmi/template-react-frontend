@@ -1,7 +1,7 @@
 import { HStack, Stack, Table, Text } from "@chakra-ui/react";
 import { useStyle } from "./theme";
 
-const TableCompo = (props: {
+export const TableCompo = (props: {
   tableName: String;
   description?: String;
   columns: any;
@@ -165,5 +165,3 @@ const TableCompo = (props: {
     </Stack>
   ) : null;
 };
-
-export default TableCompo;

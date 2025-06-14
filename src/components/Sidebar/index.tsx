@@ -1,14 +1,14 @@
 import { Heading, Stack, Image, HStack, Text, Button, Box } from "@chakra-ui/react";
 import { Menu, X } from "react-feather";
 import { BsArrowLeftShort, BsFillMoonFill, BsFillSunFill, BsNewspaper } from "react-icons/bs";
-import Divider from "../Divider";
+import { Divider } from "../Divider";
 import { MdPerson, MdAdminPanelSettings } from "react-icons/md";
 import { RiAdvertisementFill } from "react-icons/ri";
 import { useState } from "react";
-import SidebarList from "./Fragments/SidebarList";
+import { SidebarList } from "./Fragments/SidebarList";
 import { useStore } from "../../utils/store/store";
 import { useNavigate } from "react-router";
-import Pencarian from "../Pencarian";
+import { Pencarian } from "../Pencarian";
 import { useStyle } from "../theme";
 
 // accordion menus
@@ -38,7 +38,7 @@ const navcordionMenu2 = [
     path: "/page4",
   },
 ];
-const Sidebar = (props: { pageName: any; parts: any }) => {
+export const Sidebar = (props: { pageName: any; parts: any }) => {
   const currentTheme = useStore<boolean>((state) => state.currentTheme);
   const setTheme = useStore<() => void>((state) => state.setTheme);
   const navigate = useNavigate();
@@ -203,5 +203,3 @@ const Sidebar = (props: { pageName: any; parts: any }) => {
     </>
   );
 };
-
-export default Sidebar;

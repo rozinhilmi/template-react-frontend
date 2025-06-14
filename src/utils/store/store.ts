@@ -2,25 +2,32 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { StoreInterface } from "./interface";
 
-// Membuat store dengan middleware persist
 export const useStore = create<StoreInterface>()(
   persist(
     (set) => ({
+      // functional State {
       setStore: (key: string, newValue: any) =>
         set((state) => ({
           ...state,
           [key]: newValue,
         })),
-      currentTheme: false,
       setTheme: () =>
         set((state) => ({
           currentTheme: !state.currentTheme,
         })),
-      count: 1,
-      inputState: "input state value",
+      // }
+
+      // Global State {
       token: "",
+      currentTheme: false,
       secretKey: import.meta.env.VITE_SECRET_KEY,
       appVersion: import.meta.env.VITE_APP_VERSION,
+      // }
+
+      // Dashboard Page {
+      count: 1,
+      inputState: "input state value",
+      // }
     }),
     {
       name: "store",

@@ -1,7 +1,8 @@
 import { useStyle } from "@/components/theme";
 import { Icon, Text, HStack, Stack } from "@chakra-ui/react";
 import { NavLink, useLocation } from "react-router";
-const NavAccordionItem = (props: { label: any; path: any; icon: any; setShowSidebar?: any }) => {
+
+export const NavAccordionItem = (props: { label: any; path: any; icon: any; setShowSidebar?: any }) => {
   const location = useLocation();
   const active = props.path == location.pathname;
   const style = useStyle();
@@ -40,5 +41,3 @@ const NavAccordionItem = (props: { label: any; path: any; icon: any; setShowSide
     </NavLink>
   );
 };
-
-export default NavAccordionItem;

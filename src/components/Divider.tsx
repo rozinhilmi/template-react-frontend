@@ -1,6 +1,6 @@
 import { Stack } from "@chakra-ui/react";
 
-const Divider = () => {
+export const Divider = () => {
   return (
     <Stack
       width={"100%"}
@@ -10,5 +10,3 @@ const Divider = () => {
     ></Stack>
   );
 };
-
-export default Divider;

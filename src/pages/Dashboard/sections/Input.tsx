@@ -2,7 +2,7 @@ import { Input } from "@chakra-ui/react";
 import { setStore, store } from "../../../utils/store/store";
 import { useStyle } from "@/components/theme";
 
-const UsernameInput = () => {
+export const UsernameInput = () => {
   const inputState = store("inputState");
   const style = useStyle();
   return (
@@ -17,5 +17,3 @@ const UsernameInput = () => {
     </>
   );
 };
-
-export default UsernameInput;

@@ -3,7 +3,7 @@ import { Dialog, Input, InputGroup, Portal, Stack } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import { useStyle } from "./theme";
 
-const Pencarian = () => {
+export const Pencarian = () => {
   const style = useStyle();
   return (
     <Dialog.Root>
@@ -27,5 +27,3 @@ const Pencarian = () => {
     </Dialog.Root>
   );
 };
-
-export default Pencarian;

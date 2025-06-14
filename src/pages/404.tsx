@@ -2,7 +2,7 @@ import { useStyle } from "@/components/theme";
 import { Stack, Text } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 
-const NotFoundPage = () => {
+export const NotFoundPage = () => {
   const style = useStyle();
   return (
     <Stack width={"100vw"} height={"100vh"} justifyContent={"center"} alignItems={"center"} color={style.primaryTextTitleColor} lineHeight={"30px"}>
@@ -16,5 +16,3 @@ const NotFoundPage = () => {
     </Stack>
   );
 };
-
-export default NotFoundPage;

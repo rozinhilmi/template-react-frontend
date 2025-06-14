@@ -1,8 +1,8 @@
 import { Accordion, Text, Icon, HStack, Stack } from "@chakra-ui/react";
-import NavAccordionItem from "./NavAccordionItem";
+import { NavAccordionItem } from "./NavAccordionItem";
 import { useStyle } from "@/components/theme";
 
-const NavAccordion = (props: { payload: any; label: any; icon: any; setShowSidebar?: any }) => {
+export const NavAccordion = (props: { payload: any; label: any; icon: any; setShowSidebar?: any }) => {
   const style = useStyle();
   return (
     <>
@@ -46,4 +46,3 @@ const NavAccordion = (props: { payload: any; label: any; icon: any; setShowSideb
     </>
   );
 };
-export default NavAccordion;

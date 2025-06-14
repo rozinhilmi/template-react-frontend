@@ -1,9 +1,9 @@
 import { Grid, GridItem, Stack } from "@chakra-ui/react";
 import { Outlet, useLocation, useParams } from "react-router";
-import Sidebar from "../components/Sidebar";
+import { Sidebar } from "../components/Sidebar";
 import { useStyle } from "@/components/theme";
 
-const Layout = () => {
+export const Layout = () => {
   const params = useParams();
   const location = useLocation();
   const pathname = location.pathname;
@@ -40,5 +40,3 @@ const Layout = () => {
     </Stack>
   );
 };
-
-export default Layout;

@@ -1,9 +1,9 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router";
-import Middleware from "./utils/middleware/Middleware";
-import Layout from "./pages/Layout";
+import { Middleware } from "./utils/middleware/Middleware";
+import { Layout } from "./pages/Layout";
 import { Dashboard, DetailStore, NotFoundPage, Store } from "./pages";
 
-function App() {
+export const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -29,6 +29,4 @@ function App() {
     )
   );
   return <RouterProvider router={router} />;
-}
-
-export default App;
+};

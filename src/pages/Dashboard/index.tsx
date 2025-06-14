@@ -1,10 +1,11 @@
 import { Button, HStack, Text } from "@chakra-ui/react";
-import UsernameInput from "./sections/Input";
+import { UsernameInput } from "./sections/Input";
 import { setStore, store, useStore } from "../../utils/store/store";
 import { useStyle } from "@/components/theme";
 import { StoreInterface } from "@/utils/store/interface";
 import { Helmet } from "react-helmet";
-const index = () => {
+
+export const Index = () => {
   const count = store("count");
   const inputState = store("inputState");
   const allStore = useStore<StoreInterface>((state) => state);
@@ -45,5 +46,3 @@ const index = () => {
     </div>
   );
 };
-
-export default index;
