@@ -36,20 +36,31 @@ export const TableCompo = (props: {
       </HStack>
       <Stack overflowX={"scroll"}>
         <Table.Root>
-          <Table.Header color={style.secondaryTextColor} fontSize={"md"}>
-            <Table.Row border={"none"}>
+          <Table.Header fontSize={"md"}>
+            <Table.Row border={"none"} backgroundColor={style.backgroundContainer}>
               {props.columns.map((cel: any, index: number) => (
-                <Table.ColumnHeader borderBottom={style.customBorder} key={index} textAlign={cel?.align === "right" ? "right" : "left"}>
+                <Table.ColumnHeader
+                  borderBottom={style.customBorder}
+                  key={index}
+                  textAlign={cel?.align === "right" ? "right" : "left"}
+                  color={style.primaryTextColor}
+                >
                   {cel.title}
                 </Table.ColumnHeader>
               ))}
             </Table.Row>
           </Table.Header>
-          <Table.Body color={style.primaryTextColor} fontSize={"md"}>
+          <Table.Body fontSize={"md"}>
             {props.data.map((row: any, index: number) => (
-              <Table.Row key={index}>
+              <Table.Row key={index} backgroundColor={style.backgroundContainer}>
                 {props.columns.map((column: any, index: number) => (
-                  <Table.Cell border={"none"} key={index} textAlign={column?.align === "right" ? "right" : "left"} whiteSpace={"nowrap"}>
+                  <Table.Cell
+                    border={"none"}
+                    key={index}
+                    textAlign={column?.align === "right" ? "right" : "left"}
+                    whiteSpace={"nowrap"}
+                    color={style.secondaryTextColor}
+                  >
                     {column.render ? column?.render(row) : row[column.key]}
                   </Table.Cell>
                 ))}

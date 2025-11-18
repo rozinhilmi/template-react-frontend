@@ -139,7 +139,7 @@ export const Index = () => {
           </HStack>
 
           <TableCompo tableName={"Products"} columns={columns} data={products} />
-          <pre>{JSON.stringify(products, null, 2)}</pre>
+          <pre style={{ color: style.primaryTextColor }}>{JSON.stringify(products, null, 2)}</pre>
         </div>
       ) : null}
     </div>
