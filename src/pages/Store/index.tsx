@@ -2,12 +2,12 @@ import { LazyLoadImage } from "@/components/Image";
 import { LoadingComponent } from "@/components/LoadingComponent";
 import { TableCompo } from "@/components/TableCompo";
 import { useStyle } from "@/components/theme";
-import { convertToBillNumber, useToken } from "@/utils/helper/helper";
+import { helper } from "@/utils/helper";
 import { HStack, RatingGroup, Stack, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router";
+import { getData } from "./fetching";
 type ProductInterface = {
   id: number;
   title: string;
@@ -22,17 +22,13 @@ type ProductInterface = {
 };
 
 export const Index = () => {
-  const token = useToken();
   const {
     data: products,
-    isFetching,
-    isSuccess,
+    isFetching: fetchingProducts,
+    isSuccess: successFetchingProducts,
   } = useQuery({
     queryKey: ["products"],
-    queryFn: async () => {
-      const res = await axios.get("https://fakestoreapi.com/products", token);
-      return res.data;
-    },
+    queryFn: getData,
   });
   const style = useStyle();
   const columns: object[] = [
@@ -50,7 +46,7 @@ export const Index = () => {
       key: "price",
       render: (data: ProductInterface) => (
         <Text maxWidth={"300px"} overflow={"hidden"} color={style.primaryTextColor}>
-          {convertToBillNumber(data.price)}
+          {helper.convertToBillNumber(data.price)}
         </Text>
       ),
     },
@@ -58,7 +54,7 @@ export const Index = () => {
       title: "Description",
       key: "description",
       render: (data: ProductInterface) => (
-        <Text maxWidth={"300px"} overflow={"hidden"} color={style.primaryTextColor}>
+        <Text maxWidth={"300px"} overflow={"hidden"} whiteSpace={"nowrap"} textOverflow={"ellipsis"}>
           {data.description}
         </Text>
       ),
@@ -92,11 +88,11 @@ export const Index = () => {
       <Helmet>
         <title>Store</title>
       </Helmet>
-      {isFetching ? (
+      {fetchingProducts ? (
         <LoadingComponent />
-      ) : isSuccess ? (
+      ) : successFetchingProducts ? (
         <div>
-          <HStack flexWrap={"wrap"} gap={"32px"} justifyContent={"center"}>
+          <HStack flexWrap={"wrap"} gap={"32px"} justifyContent={"center"} marginY={"20px"}>
             {products.map((i: ProductInterface) => (
               <Stack
                 width={{ base: "100%", sm: "45%", md: "30%", lg: "138px" }}
@@ -120,7 +116,7 @@ export const Index = () => {
                   />
                   <Text color={style.primaryTextColor}>{i.title}</Text>
                   <Text color={style.primaryTextColor} fontWeight={"bold"}>
-                    {convertToBillNumber(i.price)}
+                    {helper.convertToBillNumber(i.price)}
                   </Text>
                   <HStack gap={"10px"} color={style.secondaryTextColor}>
                     <HStack gap={"0px"}>

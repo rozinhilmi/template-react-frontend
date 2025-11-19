@@ -34,10 +34,10 @@ export const TableCompo = (props: {
         </Stack>
         {props.additionalComponent}
       </HStack>
-      <Stack overflowX={"scroll"}>
+      <Stack overflowX={"auto"} maxHeight={"60vh"}>
         <Table.Root>
           <Table.Header fontSize={"md"}>
-            <Table.Row border={"none"} backgroundColor={style.backgroundContainer}>
+            <Table.Row border={"none"} backgroundColor={style.backgroundContainer} style={{ position: "sticky", top: 0, zIndex: 1 }}>
               {props.columns.map((cel: any, index: number) => (
                 <Table.ColumnHeader
                   borderBottom={style.customBorder}

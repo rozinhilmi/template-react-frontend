@@ -2,9 +2,9 @@ import { LoadingComponent } from "@/components/LoadingComponent";
 import { useStyle } from "@/components/theme";
 import { Stack } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router";
+import { getData } from "./fetching";
 
 export const Index = () => {
   const params = useParams();
@@ -15,8 +15,7 @@ export const Index = () => {
   } = useQuery({
     queryKey: ["detailProduct"],
     queryFn: async () => {
-      const res = await axios.get(`https://fakestoreapi.com/products/${params.id}`);
-      return res.data;
+      return getData(params.id);
     },
   });
   const style = useStyle();
