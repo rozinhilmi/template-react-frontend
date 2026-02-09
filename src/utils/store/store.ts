@@ -39,14 +39,6 @@ export const store = <K extends keyof StoreInterface>(key: K) => {
   return useStore<StoreInterface[K]>((state) => state[key]);
 };
 
-export const setStore = (key: string, newValue: any) => {
-  useStore.getState().setStore(key, newValue); // Memanggil fungsi setStore di store
-};
-
-export const useToken = () => {
-  return {
-    headers: {
-      Authorization: useStore.getState().token,
-    },
-  };
+export const setStore = <K extends keyof StoreInterface>(key: K, newValue: StoreInterface[K]) => {
+  useStore.getState().setStore(key, newValue);
 };

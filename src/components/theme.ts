@@ -1,4 +1,4 @@
-import { useStore } from "../utils/store/store";
+import { store } from "../utils/store/store";
 
 type StyleInterface = {
   primaryColor: string;
@@ -21,7 +21,7 @@ type StyleInterface = {
 };
 
 const currentTheme = (): boolean => {
-  const currentTheme = useStore<boolean>((state) => state.currentTheme);
+  const currentTheme = store("currentTheme");
   return currentTheme;
 };
 export const useStyle = (): StyleInterface => {
